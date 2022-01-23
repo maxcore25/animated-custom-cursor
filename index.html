@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script src=""></script>
+    <div class="cursor"></div>
+    <script>
+      const cursor = document.querySelector('.cursor');
+
+      document.addEventListener('mousemove', e => {
+        cursor.style.display = 'block';
+        cursor.style.top = e.pageY - 10 + 'px';
+        cursor.style.left = e.pageX - 10 + 'px';
+      });
+
+      document.addEventListener('mouseleave', e => {
+        cursor.style.display = 'none';
+      });
+
+      document.addEventListener('click', e => {
+        cursor.classList.add('expand');
+
+        setTimeout(() => {
+          cursor.classList.remove('expand');
+        }, 500);
+      });
+    </script>
   </body>
 </html>
